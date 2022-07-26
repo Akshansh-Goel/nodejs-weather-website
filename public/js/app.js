@@ -8,6 +8,7 @@ const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
+const messageThree = document.querySelector('#message-3')
 
 weatherForm.addEventListener('submit',(event)=>{
     event.preventDefault() //do not let referesh the page
@@ -16,6 +17,7 @@ weatherForm.addEventListener('submit',(event)=>{
 
     messageOne.textContent = 'Loading...'
     messageTwo.textContent =" "
+    messageThree.textContent=" "
     
     fetch(url).then((response)=>{
     response.json().then((parsedData)=>{
@@ -24,6 +26,7 @@ weatherForm.addEventListener('submit',(event)=>{
         }else{
             messageOne.textContent = parsedData.location
             messageTwo.textContent = parsedData.forecastData
+            messageThree.textContent = parsedData.localtime
         // console.log(parsedData.location);
         // console.log(parsedData.forecastData);
         }

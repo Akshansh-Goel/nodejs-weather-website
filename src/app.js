@@ -79,13 +79,14 @@ app.get('/weather',(req,res)=>{
             return res.send({error});
         }
     
-        forecast(latitude,longitude,(error,forecastData)=>{   //callback chaining
+        forecast(latitude,longitude,(error,forecastData,localtime)=>{   //callback chaining
             if(error){
                 return res.send({error});
             }
             res.send({
                 location:location,
-                forecastData:forecastData
+                forecastData:forecastData,
+                localtime:localtime
             })
          })
      })

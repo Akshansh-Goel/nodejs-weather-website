@@ -15,8 +15,9 @@ const forecast = (latitude,longitude,callback) => {
             const weather_description = body.current.weather_descriptions[0];
             const actual_temperature = body.current.temperature;
             const feelslike_temperature = body.current.feelslike;
-            data = `Observation Time: ${body.current.observation_time}, ${weather_description}. It is ${actual_temperature} degrees out. It feels like ${feelslike_temperature} degree out`
-            callback(undefined,data);
+            data = `${weather_description}. It is ${actual_temperature} degrees out. It feels like ${feelslike_temperature} degree out`
+            time = body.location.localtime
+            callback(undefined,data,time);
         }
 
     })
