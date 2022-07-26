@@ -8,7 +8,8 @@ const forecast = require('./utils/forecast.js')
 // console.log(__filename)  //till app.js
 // console.log(path.join(__dirname,'../public'))
 
-const app = express() //server 
+const app = express() //server
+const port = process.env.PORT  || 3000
 
 //Define paths for express config
 const publicDirPAth = path.join(__dirname,'../public')
@@ -128,8 +129,8 @@ app.get('*',(req,res)=>{
 })
 
 //port : 3000
-app.listen(3000,()=>{
-    console.log('Server is up on port 3000.')
+app.listen(port,()=>{
+    console.log('Server is up on port .'+port)
 }) //for local machine
 
 // Cannot set headers after they are sent to the client : two res.send cant be sent two browser
